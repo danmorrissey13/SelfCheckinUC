@@ -1,0 +1,987 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-title" content="Mobile Checkin" />
+    <title>Mobile Checkin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- FONTS -->
+
+
+    <!-- FONT AWESOME -->
+
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/plugins.min.css" rel="stylesheet"  />
+    <link href="css/normalize.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- ===================================================================================-->
+    <!--  Not sure what below js file is for - test out before uncommenting-->
+<%--    <script src="https://1303571256.rsc.cdn77.org/mirr.js?v=10&amp;"></script>--%>
+    <!-- ===================================================================================-->
+
+
+    <style>
+                * {
+                    box-sizing: border-box;
+                    font-family: "Merriweather Sans", sans-serif;
+                }
+
+                body {
+                    background-color: #B0DBEE;
+                    
+                }
+                    body #form {
+                        zoom:70%!important;
+                        min-width: 550px;
+                        color: black;
+                       /* background-color: #009EDF;*/
+                        background-color: white;
+                        border-radius: 5px;
+                        width: 400px;
+                        padding: 20px;
+                        margin: 10px auto;
+                        -webkit-box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.75);
+                        -moz-box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.75);
+                        box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.75);
+/*                        flex-direction: column;
+*/                    }
+
+                        body #form p {
+                            font-size:  0.9em;
+
+
+                        }
+
+                        body #form .form-group {
+                            margin: 1px auto;
+                        }
+
+                        body #form .form-group-fields {
+                            margin: 1px auto;
+                                margin-top:0px!important;
+                                padding-top:0px!important;
+                        }
+
+                        body #form .form-group label {
+                            font-weight: bold;
+                            font-size: 14em;
+                            margin-bottom:0px!important;
+                            padding-bottom:0px!important;
+                        }
+
+                        body #form .form-group .input-group {
+                            width:80%!important;
+                            border-radius: 5px;
+                            -webkit-box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.35);
+                            -moz-box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.35);
+                            box-shadow: -1px 3px 18px 0px rgba(0, 0, 0, 0.35);
+                        }
+
+                            body #form .form-group .input-group .input-group-addon {
+                                border: none;
+                                border-right: 1px solid rgba(0, 0, 0, 0.2);
+                                margin-top:0px!important;
+                                padding-top:0px!important;
+                            }
+
+                            body #form .form-group .input-group input {
+                                padding-left: 10px;
+                                margin-top:0px!important;
+                                padding-top:0px!important;
+                            }
+
+                            body #form .form-group .input-group i {
+                                color: #009EDF;
+                                margin-top:0px!important;
+                                padding-top:0px!important;
+                            }
+
+                        body #form .form-group input {
+                            padding: 3px;
+                            width: 100%;
+                            border: none;
+                            border-radius: 0 5px 5px 0;
+                                margin-top:0px!important;
+                                padding-top:0px!important;
+                        }
+
+                .childlabel {
+                    margin-left: 10px;
+
+                }
+
+                .fdiv {
+                    min-width: 280px !important;
+                }
+
+                .fcvont {
+                }
+
+                hr.hr1 {
+                    border: 1px solid navy;
+                    width: 100%;
+                }
+
+                body #form button {
+                    width: 80%;
+                    text-align: center;
+                    margin-top: 20px;
+                    border: 1px solid rgba(0, 0, 0, 0.4);
+                }
+
+                .btnsubmit {
+                    color: gray;
+                    font-size:larger;
+                    font-weight:900;
+                }
+
+                .btncancel {
+                    color: darkred;
+                    font-size:larger;
+                    font-weight:900;
+
+                }
+
+                .rc-header {
+                    color: black !important;
+                     padding-top: 10px;
+                    padding-bottom: 3px;
+                    padding-right:5px!important;
+                    padding-left:5px!important;
+                    text-align: center !important;
+                    background-color: white !important;
+                }
+
+                .rc-title {
+                    color: #009EDF;
+                }
+
+                .rc-lead {
+                    color: darkgray !important;
+                }
+
+                .rc-row {
+                    min-width: 20px !important;
+                }
+
+                .rc-done {
+                    display: none;
+                    text-align: center !important;
+/*                    zoom:80%;*/
+/*                    width:200px!important;
+*/                }
+
+                .rc-inputform {
+                    visibility: visible;
+                }
+                .rc-label{
+                    font-size:1em!important;
+                }
+
+                .rc-top{
+                    margin-left:-10px!important;
+                    padding-left:-10px!important;
+                    border-left:0px!important;
+                    margin-right:0px!important;
+                    padding-right:0px!important;
+                    border-right:0px!important;
+
+                }
+                .rc-label-demog{
+                    font-size:1em!important;
+                                margin-bottom:0px!important;
+                                padding-bottom:0px!important;
+                }
+                .rc-demogshort-dob{
+                    width:150px!important;
+                }
+
+                .rc-demogshort-cell{
+                    width:150px!important;
+                }
+                .rc-demogname{
+                    width:200px!important;
+                }
+                .lbl-val{
+                    color:red;
+                    display:none;
+                    margin-right:0px!important;
+                    padding-right:0px!important;
+                    border-right:0px!important;
+
+                }
+
+                .imgLogo{
+                    width:400px;
+                }
+
+                .rc-toprad{
+                    padding:0px!important;
+                }
+        input[type=checkbox]:not(old),
+        input[type=radio ]:not(old) {
+            width: 2em;
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
+            opacity: 0;
+            cursor:pointer;
+        }
+
+            input[type=checkbox]:not(old) + label,
+            input[type=radio ]:not(old) + label {
+                display: inline-block;
+                margin-left: -2em;
+/*                line-height: 1.5em;*/
+                line-height: 1.5em;
+
+                cursor: pointer;
+            }
+
+                input[type=checkbox]:not(old) + label > span,
+                input[type=radio ]:not(old) + label > span {
+                    display: inline-block;
+                    /*                    width: 0.875em;
+                    height: 0.875em;*/
+                    width: 1.1em;
+                    height: 1.1em;
+                    margin: 0.2em 0.2em 0.2em 0.1em;
+                    border: 0.0625em solid rgb(192,192,192);
+                    border-radius: 0.25em;
+                    background: rgb(224,224,224);
+                    background-image: -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+                    background-image: -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+                    background-image: -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+                    background-image: -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+                    background-image: linear-gradient(rgb(240,240,240),rgb(224,224,224));
+                    vertical-align: bottom;
+                }
+
+            input[type=checkbox]:not(old):checked + label > span,
+            input[type=radio ]:not(old):checked + label > span {
+                background-image: -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+                background-image: -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+                background-image: -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+                background-image: -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+                background-image: linear-gradient(rgb(224,224,224),rgb(240,240,240));
+            }
+
+                input[type=checkbox]:not(old):checked + label > span:before {
+                    content: '✓';
+                    display: block;
+                    width: 1em;
+                    color: rgb(153,204,102);
+/*                    font-size: 0.875em;
+                    */         
+                    font-size: 0.875em;
+                    line-height: 1em;
+                    text-align: center;
+                    text-shadow: 0 0 0.0714em rgb(115,153,77);
+                    font-weight: bold;
+                }
+
+                input[type=radio]:not(old):checked + label > span > span {
+                    display: block;
+                    width: 0.78em;
+                    height: 0.78em;
+                    margin: 0.125em;
+                    border: 0.0625em solid rgb(115,153,77);
+                    border-radius: 0.125em;
+                    background: rgb(153,204,102);
+                    background-image: -moz-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+                    background-image: -ms-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+                    background-image: -o-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+                    background-image: -webkit-linear-gradient(rgb(179,217,140),rgb(153,204,102));
+                    background-image: linear-gradient(rgb(179,217,140),rgb(153,204,102));
+                }
+
+
+
+/*===============*/
+.modal
+    {
+/*        position: fixed;
+*/        z-index: 999;
+        height: 100px;
+        width: 200px!Important;
+        top: 0;
+        left: 0;
+/*        background-color: Black;
+*/        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+        opacity:0.8;
+    }
+    .center
+    {
+        z-index: 1000;
+        margin: 300px auto;
+        padding: 10px;
+        width: 130px;
+        background-color: White;
+        border-radius: 10px;
+        filter: alpha(opacity=100);
+        opacity: 1;
+        -moz-opacity: 1;
+        opacity:1;
+    }
+        .center img {
+            height: 128px;
+            width: 128px;
+            
+        }
+    </style>
+
+    <script>
+        jQuery(document).ready(function ($) {
+
+            //nsZoomZoom();
+
+            //$(window).resize(function () {
+            //    nsZoomZoom();
+            //});
+
+            $("#txtFName").on("blur", function (event) {
+                validate();
+            });
+
+            $("#txtLName").on("blur", function (event) {
+                validate();
+            });
+            $("#txtDOB").on("blur", function (event) {
+                dob();
+            });
+
+            $("#txtCell").on("blur", function (event) {
+                cell();
+            });
+            $("#ddlCarrier").on("change", function (event) {
+                validate();
+            });
+
+            $("input[type='radio'][name='rad1']").on("click", function (event) {validate();});
+            $("input[type='radio'][name='rad2']").on("click", function (event) {validate();});
+            $("input[type='radio'][name='rad3']").on("click", function (event) {validate();});
+            $("input[type='radio'][name='rad4']").on("click", function (event) {validate();});
+            $("input[type='radio'][name='rad5']").on("click", function (event) {validate();});
+            $("input[type='radio'][name='rad6']").on("click", function (event) {validate();});
+            $("input[type='radio'][name='rad7']").on("click", function (event) {validate();});
+            $("input[type='radio'][name='rad8']").on("click", function (event) {validate();});
+
+            $("#txtFName").focus();
+            //function nsZoomZoom() {
+            //    htmlWidth = $('html').innerWidth();
+            //    bodyWidth = 1000;
+
+            //    if (htmlWidth < bodyWidth)
+            //        scale = 1
+            //    else {
+            //        scale = htmlWidth / bodyWidth;
+            //    }
+
+                // Req for IE9
+                //$("body").css('-ms-transform', 'scale(' + scale + ')');
+                //$("body").css('transform', 'scale(' + scale + ')');
+            
+
+
+        });
+
+    </script>
+    <script type="text/javascript">
+
+        function cell() {
+            var inputtxt = $("#txtCell").val();
+            //alert(inputtxt);
+            var res = inputtxt.replace("(", "");
+            var s = inputtxt.replace(/[^0-9]/g, '');
+
+            //alert(res.length);
+            //if (s.length != 10) {
+            //    $("#txtCell").val("");
+            //    //$("#txtCell").focus();
+            //}
+            var phoneno = /^\d{10}$/;
+            if ((s.match(phoneno))) {
+                //alert('valid');
+                $("#hCell").val(s);
+                $("#lblValidCell").hide();
+                //validate();
+                return true;
+            }
+            else {
+                $("#lblValidCell").toggle();
+                $("#txtCell").focus();
+                $("#hCell").val('');
+                return false;
+            }
+        }
+
+        //function cell() {
+        //    const reg = /^\d{10}$/;
+        //    var inputtxt = $("#txtCell").val();
+        //    //alert(inputtxt);
+        //    var res = inputtxt.replace("(", "");
+        //    var s = inputtxt.replace(/[^0-9]/g, '');
+
+           
+        //    if ((s.match(reg))) {
+        //        //alert('valid');
+        //        $("#hCell").val(s);
+        //        $("#lblValidCell").hide();
+        //        validate();
+        //        return true;
+        //    }
+        //    else {
+        //        $("#lblValidCell").toggle();
+        //        $("#txtCell").focus();
+        //        $("#hCell").val('');
+        //        return false;
+        //    }
+        //}
+        function dob() {
+            const reg = /^\d{8}$/
+            var inputtxt = $("#txtDOB").val();
+            //alert('inputtxt = ' + inputtxt);
+            var s = inputtxt.replace(/[^0-9]/g, '');
+
+            var phoneno = /^\d{8}$/;
+            if ((s.match(phoneno))) {
+                //   alert('valid');
+                $("#lblValidDOB").hide();
+                $("#hDOB").val(s);
+                validate();
+                return true;
+            }
+            else {
+                //alert(inputtxt);
+                if (inputtxt === "__/__/____") {
+                    //break;
+                }
+                else {
+                    //alert("Invalid birth date");
+                    $("#lblValidDOB").toggle();
+                    $("#txtDOB").focus();
+                    $("#hDOB").val('');
+                    return false;
+                }
+            }
+        }
+
+
+     function toggleDivs() {
+         $("#rcinput").hide();
+         $("#rcdone").show();
+         //$("#rcdone").toggle();
+
+
+     }
+     function toggleVisible(){
+         $("#rcinput").toggle();
+         $("#rcdone").toggle();
+     }
+     function toggleHide() {
+         $(".rc-done").toggle();
+     }
+
+     function toggleDivsBack() {
+         $("#rcinput").show();
+         $("#rcdone").hide();
+     }
+
+<%--        function ShowCurrentTime() {
+             alert('called');
+            $.ajax({
+            type: "POST",
+            url: "RemoteCheckin.aspx/GetCurrentTime",
+            data: '{name: "' + $("#<%=txtFname.ClientID%>")[0].value + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: OnSuccess,
+            failure: function(response) {
+            alert(response.d);
+        }
+    });
+     }--%>
+
+        function SubmitCheckin() {
+
+            const reg = /[^0-9]/g
+            var strFName = $("#txtFName").val();
+            var strLName = $("#txtLName").val();
+            var strDOB = $("#txtDOB").val();
+           // alert(strDOB);
+            var strCell = $("#txtCell").val();
+            var strCellCarrier = $("#ddlCarrier option:selected").val();
+
+            strDOB = String(strDOB).replace(reg, '');
+            strCell = String(strCell).replace(reg, '');
+
+            var strQ1 = $("#lblQ1").html() + " " + $("input[type='radio'][name='rad1']:checked").val();
+            var strQ2 = $("#lblQ2").html() + " " + $("input[type='radio'][name='rad2']:checked").val();
+            var strQ3 = $("#lblQ3").html() + " " + $("input[type='radio'][name='rad3']:checked").val();
+            var strQ4 = $("#lblQ4").html() + " " + $("input[type='radio'][name='rad4']:checked").val();
+            var strQ5 = $("#lblQ5").html() + " " + $("input[type='radio'][name='rad5']:checked").val();
+            var strQ6 = $("#lblQ6").html() + " " + $("input[type='radio'][name='rad6']:checked").val();
+            var strQ7 = $("#lblQ7").html() + " " + $("input[type='radio'][name='rad7']:checked").val();
+            var strQ8 = $("#lblQ8").html() + " " + $("input[type='radio'][name='rad8']:checked").val();
+
+
+            //strDelim = strQ1 + "|" + strQ2 + "|" + strQ3 + "|" + strQ4 + "|" + strQ5 + "|" + strQ6 + "|" + strQ7 + "|" + strQ8 + "|";
+
+            //alert(strDelim);
+
+            $.ajax({
+                type: "POST",
+                url: "RC.aspx/SubmitRemoteCheckin",
+                beforeSend: function () {
+                    $(".modal").show();
+                },
+                complete: function () {
+                    $(".modal").hide();
+                },
+                data: '{strFName:"' + strFName + '",strLName:"' + strLName + '",strDOB:"' + strDOB + '",strCell:"' + strCell + '",strCellCarrier:"' + strCellCarrier + '",strQ1:"' + strQ1 + '",strQ2:"' + strQ2 + '",strQ3:"' + strQ3 + '",strQ4:"' + strQ4 + '",strQ5:"' + strQ5 + '",strQ6:"' + strQ6 + '",strQ7:"' + strQ7 + '",strQ8:"' + strQ8 + '" }',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: OnSuccess,
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+
+        function OnSuccess(response) {
+            toggleDivs();
+            $("#completeLabel").toggle();
+        }
+
+    </script>
+</head>
+<body>
+<div class="modal" style="display: none">
+    <div class="center">
+        <img alt="" src="assets/img/loading.gif" />
+    </div>
+</div>
+    <form id="form" runat="server">
+         <asp:ScriptManager runat="server"></asp:ScriptManager>
+        <div class="jumbotron rc-header">
+            <img id="imgLogo" class="imgLogo" src="assets/img/logo_SaratogaHosp.png" />
+            <h2><span class="rc-title">Mobile Outpatient Check-In</span></h2>
+            <p class="lead rc-lead"><span id="completeLabel">Please complete all fields.</span></p>
+<%--            <label id="lblTest">test</label>--%>
+        </div>
+<%--        <input id="Button1" type="button" value="Test" onclick="test();"/>--%>
+        <div id="rcinput" class="rc-inputform">
+
+            <div class="container">
+                <div class="row flex-nowrap rc-row">
+                    <div class="col-sm-7 col-2 fdiv">
+                        <div class="form-group-fields">
+                            <label class="rc-label-demog" for="txtFName">First Name</label>
+                            <br />
+                            <div class="input-group">
+<%--                                <div class="input-group-addon">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </div>--%>
+                                <input type="text" id="txtFName" class="rc-demogname" placeholder="First name" runat="server" tabindex="1" title="First Name" pattern="^([- \w\d\u00c0-\u024f]+)$"/>
+                            </div>
+                        </div>
+                    </div>
+                    <%-- DOB HERE --%>
+                    <div class="col-sm-5 col-2 fdiv">
+                        <div class="form-group-fields">
+
+                            <label class="rc-label-demog" for="txtDOB">DOB</label><label id="lblValidDOB" class="lbl-val">&nbsp;&nbsp;INVALID</label>
+                            <br />
+                            <div class="input-group">
+<%--                                <div class="input-group-addon">
+                                <i class="fa fa-user" aria-hidden="true"></i></div>--%>
+                                <asp:TextBox class="rc-demogshort-dob" ID="txtDOB" runat="server" TabIndex="3"></asp:TextBox> 
+                                <CC1:MaskedEditExtender ID="MaskedEditExtender1" runat="server" 
+                                TargetControlID="txtDOB"
+                                            Mask="99/99/9999"
+                                            MessageValidatorTip="True"
+                                            CultureName="en-US"
+                                            OnFocusCssClass="MaskedEditFocus"
+                                            OnInvalidCssClass="MaskedEditError"
+                                            DisplayMoney="None"
+                                            AcceptNegative="None"
+                                            ErrorTooltipEnabled="True" AutoComplete="False" ClearTextOnInvalid="True" ClearMaskOnLostFocus="False" />
+
+                                        
+
+                                        <cc1:MaskedEditValidator ID="MaskedEditValidator1" runat="server"
+                                            ControlExtender="MaskedEditExtender1"
+                                            ControlToValidate="txtDOB"
+                                            EmptyValueMessage="Date is required"
+                                            InvalidValueMessage="Date is invalid"
+                                            Display="Dynamic"
+                                            TooltipMessage=""
+                                            EmptyValueBlurredText="*"
+                                            InvalidValueBlurredMessage="*" ErrorMessage="Invalid date" ForeColor="Red" IsValidEmpty="False" SetFocusOnError="True" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row flex-nowrap">
+                    <div class="col-sm-7 col-2 fdiv">
+                        <div class="form-group-fields">
+                            <label class="rc-label-demog" for="txtLName">Last Name</label>
+                            <br />
+                            <div class="input-group">
+<%--                                <div class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i>            </div>--%>
+                                <input type="text" id="txtLName" class="rc-demogname" placeholder="Last name" runat="server" tabindex="2"  title="Last Name" pattern="^([- \w\d\u00c0-\u024f]+)$"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5 col-2 fdiv">
+                        <div class="form-group-fields">
+                            <label class="rc-label-demog" for="txtCell">Cell Phone</label><label id="lblValidCell" class="lbl-val">&nbsp;&nbsp;INVALID</label>
+                            <br />
+                            <div class="input-group">
+<%--                                <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i>            
+                                </div>--%>
+<%--                                <input class="rc-demogshort-cell" type='text' id='txtCell' />--%>
+                                <asp:TextBox class="rc-demogshort-cell"  ID="txtCell" runat="server" TabIndex="4" onblur="cell();"></asp:TextBox> 
+                                <CC1:MaskedEditExtender ID="MaskedEditExtender3" runat="server" 
+                                TargetControlID="txtCell"
+                                            Mask="(999)999-9999"
+                                            MessageValidatorTip="true"
+                                            CultureName="en-US"
+                                            OnFocusCssClass="MaskedEditFocus"
+                                            OnInvalidCssClass="MaskedEditError"
+                                            DisplayMoney="None"
+                                            AcceptNegative="None"
+                                            ErrorTooltipEnabled="True" ClearMaskOnLostFocus="False" ClearTextOnInvalid="True"/>
+                                        
+                                <cc1:MaskedEditValidator ID="MaskedEditValidator3" runat="server"
+                                    ControlExtender="MaskedEditExtender3"
+                                    ControlToValidate="txtCell"
+                                    EmptyValueMessage="Phone is required"
+                                    InvalidValueMessage="Phone is invalid"
+                                    Display="Dynamic"
+                                    TooltipMessage=""
+                                    EmptyValueBlurredText="*"
+                                    InvalidValueBlurredMessage="*"/>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="row flex-nowrap">
+                    <%-- Last Name Here --%>
+
+                    <div class="col-sm-7 col-2 fdiv">
+ 
+                    </div>
+
+                    <div class="col-sm-5 col-2 fdiv">
+                        <div class="form-group-fields">
+                            <label class="rc-label-cell" for="ddlCarrier">Mobile Carrier</label>
+                            <br />
+                            <div class="input-group">
+<%--                                <div class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i> </div>--%>
+                                <asp:DropDownList ID="ddlCarrier" runat="server" DataTextField="Carrier" tabindex="5" DataValueField="Carrier" ClientIDMode="Static"></asp:DropDownList>
+
+			                </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <br />
+            <br />
+                <div class="row flex-nowrap">
+                <div class="col-sm-6 col-6">
+                    <label  class="rc-label childlabel" id="lblQ1">Why are you here?</label>
+                </div>
+                    <div class="col-sm-8 col-8 rc-toprad" >
+                        <input class="rc-top" id="rad1_1" type="radio" tabindex="6" name="rad1" value="Scheduled Appointment" onchange="validate()"/>                       
+                        <label class="rc-label rc-top text-nowrap" for="rad1_1"><span><span></span></span>Scheduled Appointment</label>
+                        <br />
+                        <input class="rc-top" id="rad1_2" type="radio" tabindex="7" name="rad1" value="Non Scheduled Appointment" onclick="validate()" />
+                        <label  class="rc-label rc-top text-nowrap" for="rad1_2"><span><span></span></span>Non-Scheduled Appointment</label>
+                        <br />
+                        <input class="rc-top" id="rad1_3" type="radio" tabindex="8" name="rad1" value="Both" onclick="validate()"/>
+                        <label class="rc-label rc-top text-nowrap" for="rad1_3"><span><span></span></span>Both</label>
+                        <br />
+                        <input class="rc-top" id="rad1_4" type="radio" tabindex="9" name="rad1" value="I don't kno" onclick="validate()"/>
+                        <label class="rc-label rc-top text-nowrap" for="rad1_4"><span><span></span></span>Not sure</label>
+                    </div>
+                </div>
+            <br />
+            <div class="row flex-nowrap">
+                <div class="col-sm-6 col-6">
+                    <label  class="rc-label " id="lblQ2">Do you have a doctor's order in hand?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-sm-8 col-8 rc-toprad">
+                    <input class="rc-top" id="rad2Y" type="radio" tabindex="10" name="rad2" value="Yes" onclick="validate()" />
+                    <label class="rc-label rc-top text-nowrap" for="rad2Y"><span><span></span></span>Yes</label>
+                    <input class="rc-top"  id="rad2N" type="radio" tabindex="11" name="rad2" value="No" onclick="validate()"/>
+                    <label  class="rc-label rc-top text-nowrap" for="rad2N"><span><span></span></span>No</label>
+                    <br />
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <hr class="hr1" />
+            </div>
+            <br />
+            <div class="container">
+                <div class="row flex-nowrap">
+                      <div class="col-sm-9">
+                        <label class="rc-label" id="lblQ3">Are you experiencing an Cough, Fever, Shortness of Breath, Diarrhea, Loss of Taste or Smell, Headache, Muscle Pain, Sore Throat?</label>
+                    </div>
+                    <div class="col-sm-3 col-3">
+                        <input id="rad3Y" type="radio" tabindex="12" name="rad3" value="Yes" onclick="validate()" />
+                        <label class="rc-label" for="rad3Y"><span><span></span></span>Yes</label>
+                        <br />
+                        <input id="rad3N" type="radio" tabindex="13" name="rad3" value="No" onclick="validate()" />
+                        <label class="rc-label" for="rad3N"><span><span></span></span>No</label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="container">
+                <div class="row flex-nowrap">
+                     <div class="col-sm-9">
+                        <label class="rc-label" id="lblQ4">Have you been to a designated hotspot?</label>
+                    </div>
+                    <div class="col-sm-3 col-3">
+                        <input id="rad4Y" type="radio" tabindex="14" name="rad4" value="Yes" onclick="validate()" />
+                        <label class="rc-label" for="rad4Y"><span><span></span></span>Yes</label>
+                        <br />
+                        <input id="rad4N" type="radio" tabindex="15" name="rad4" value="No" onclick="validate()" tabindex="14"/>
+                        <label class="rc-label" for="rad4N"><span><span></span></span>No</label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="container">
+                <div class="row flex-nowrap">
+                     <div class="col-sm-9">
+                        <label class="rc-label" id="lblQ5">Have you had exposure to confirmed case of COVID-19 in the last 14 days?</label>
+                    </div>
+                    <div class="col-sm-3 col-3">
+                        <input id="rad5Y" type="radio" tabindex="16" name="rad5" value="Yes" onclick="validate()" />
+                        <label class="rc-label" for="rad5Y"><span><span></span></span>Yes</label>
+                        <br />
+                        <input id="rad5N" type="radio" tabindex="17" name="rad5" value="No" onclick="validate()" />
+                        <label class="rc-label" for="rad5N"><span><span></span></span>No</label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="container">
+                <div class="row flex-nowrap">
+                     <div class="col-sm-9">
+                        <label class="rc-label" id="lblQ6">Have you had exposure to a person being tested for COVID-19 in the last 14 days?</label>
+                    </div>
+                    <div class="col-sm-3 col-3">
+                        <input id="rad6Y" type="radio" tabindex="18" name="rad6" value="Yes" onclick="validate()" />
+                        <label class="rc-label" for="rad6Y"><span><span></span></span>Yes</label>
+                        <br />
+                        <input id="rad6N" type="radio" tabindex="19" name="rad6" value="No" onclick="validate()" />
+                        <label class="rc-label" for="rad6N"><span><span></span></span>No</label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="container">
+                <div class="row flex-nowrap">
+                     <div class="col-sm-9">
+                        <label class="rc-label" id="lblQ7">Do you have suspected COVID?</label>
+                    </div>
+                    <div class="col-sm-3 col-3">
+                        <input id="rad7Y" type="radio" tabindex="20" name="rad7" value="Yes" onclick="validate()"/>
+                        <label class="rc-label" for="rad7Y"><span><span></span></span>Yes</label>
+                        <br />
+                        <input id="rad7N" type="radio" tabindex="21" name="rad7" value="No" onclick="validate()"/>
+                        <label class="rc-label" for="rad7N"><span><span></span></span>No</label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="container">
+                <div class="row flex-nowrap">
+                     <div class="col-sm-9">
+                        <label class="rc-label" id="lblQ8"> Have you been told by your Doctor or Public Health to Quarantine or Isolate?</label>
+                    </div>
+                    <div class="col-sm-3 col-3">
+                        <input id="rad8Y" type="radio" tabindex="22" name="rad8" value="Yes" onclick="validate()"/>
+                        <label class="rc-label" for="rad8Y"><span><span></span></span>Yes</label>
+                        <br />
+                        <input id="rad8N" type="radio" tabindex="23" name="rad8" value="No" onclick="validate()"/>
+                        <label class="rc-label" for="rad8N"><span><span></span></span>No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row flex-nowrap">
+
+                    <div class="col-sm-6 col-2 fdiv">
+                        <button type="button" class="btn btn-default btncancel" tabindex="24" onclick="window.close();">Cancel</button>
+                    </div>
+                    <div class="col-sm-6 col-2 fdiv">
+                        <button type="button" id="btnSubmit" tabindex="25" onclick="SubmitCheckin();" class="btn btn-default btnsubmit" disabled="disabled">Check In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="rcdone" class="rc-done">
+            <h1>Thank You<br />Check-in Received.</h1>
+            <h3>You will receive a text message on your mobile phone when it's your turn to come in.</h3>
+                <button type="button" class="btn btn-default" onclick="sendToHome();">Close</button>         
+
+        </div>
+        <input type="hidden" id="hFN" />
+        <input type="hidden" id="hLN" />
+        <input type="hidden" id="hDOB" />
+        <input type="hidden" id="hCell" />
+
+        <input type="hidden" id="hQA" />
+        <input type="hidden" id="hVA" />
+        <input type="hidden" id="hQB" />
+        <input type="hidden" id="hVB" />
+        <input type="hidden" id="hQ1" />
+        <input type="hidden" id="hV1" />
+        <input type="hidden" id="hQ2" />
+        <input type="hidden" id="hV2" />
+        <input type="hidden" id="hQ3" />
+        <input type="hidden" id="hV3" />
+        <input type="hidden" id="hQ4" />
+        <input type="hidden" id="hV4" />
+        <input type="hidden" id="hQ5" />
+        <input type="hidden" id="hV5" />
+        <input type="hidden" id="hQ6" />
+        <input type="hidden" id="hV6" />
+
+
+        <script src="assets/js/plugins.min.js"></script>
+        <script src="assets/js/app.min.js"></script>
+        <script src="https://unpkg.com/jquery-input-mask-phone-number@1.0.15/dist/jquery-input-mask-phone-number.js"></script>
+
+
+
+    </form>
+    <form id="form2">
+        <div>
+            <h1><span id="sp1"></span></h1>
+
+        </div>
+    </form>
+    <script>
+        function sendToHome() {
+            window.location.href = "RemoteCheckin.aspx";
+        }
+        function validate() {
+            var i = 0;
+            const reg = /[^0-9]/g
+            var iCount = 0;
+            var strFName = $("#txtFName").val();
+            var strLName = $("#txtLName").val();
+            var strDOB = $("#txtDOB").val();
+            var strCell = $("#txtCell").val();
+            //var strCellCarrier = $("#ddlCellCarrier option:selected").val();
+            //alert(strCellCarrier);
+
+            var strCellCarrier = $("#ddlCarrier").val();
+
+
+            //alert(strCellCarrier);
+            var strQ1 = $("input[type='radio'][name='rad1']:checked").val();
+            var strQ2 = $("input[type='radio'][name='rad2']:checked").val();
+            var strQ3 = $("input[type='radio'][name='rad3']:checked").val();
+            var strQ4 = $("input[type='radio'][name='rad4']:checked").val();
+            var strQ5 = $("input[type='radio'][name='rad5']:checked").val();
+            var strQ6 = $("input[type='radio'][name='rad6']:checked").val();
+            var strQ7 = $("input[type='radio'][name='rad7']:checked").val();
+            var strQ8 = $("input[type='radio'][name='rad8']:checked").val();
+            strFName = $("#txtFName").val();
+            strLName = $("#txtLName").val();
+            strDOB = $("#txtDOB").val();
+            strCell = $("#txtCell").val;
+
+            strDOB = $("#txtDOB").val().replace(reg, '');//8
+            strCell = $("#txtCell").val().replace(reg, '');//10
+
+            if ($("input:radio[name='rad1']").is(":checked")) {
+                i ++;
+            }
+           // $('#lblTest').text(i);
+            if ($("input:radio[name='rad2']").is(":checked")) {
+                i ++;
+            }
+            //$('#lblTest').text(i);
+            if ($("input:radio[name='rad3']").is(":checked")) {
+                i ++;
+            }
+            //$('#lblTest').text(i);
+            if ($("input:radio[name='rad4']").is(":checked")) {
+                i ++;
+            }
+            if ($("input:radio[name='rad5']").is(":checked")) {
+                i ++;
+            }
+           // $('#lblTest').text(i);
+            if ($("input:radio[name='rad6']").is(":checked")) {
+                i ++;
+            }
+
+          //  $('#lblTest').text(i);
+            if ($("input:radio[name='rad7']").is(":checked")) {
+                i ++;
+            }
+          //  $('#lblTest').text(i);
+            if ($("input:radio[name='rad8']").is(":checked")) {
+                i ++;
+            }
+//$('#lblTest').text(i);
+
+            if (strFName.length == 0) {
+            } else { i++; };
+          // $('#lblTest').text(i);
+             if (strLName.length == 0) {
+            } else { i++; };
+           // $('#lblTest').text(i);
+            if (strDOB.length == 0) {
+            } else { i++; };
+           // $('#lblTest').text(i);
+            if (strCell.length == 0) {
+            } else { i++; };
+           // $('#lblTest').text(i);
+            if (strCellCarrier.length == 0) {
+            } else { i++; };
+           // $('#lblTest').text(i);
+            if (i == 13) {
+                //$('#lblTest').text("Validation passede with i = " +i);
+                $("#btnSubmit").prop("disabled", false);
+                $("#btnSubmit").css('color', 'green');
+            }
+            else {
+                $("#btnSubmit").prop("disabled", true);
+                $("#btnSubmit").css('color', 'gray');
+            }
+        }
+
+    </script>
+</body>
+</html>

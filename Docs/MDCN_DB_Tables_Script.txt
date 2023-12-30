@@ -1,0 +1,343 @@
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_naham_ID]    Script Date: 10/22/2021 12:26:15 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_naham_ID](
+	[NahamID] [varchar](50) NULL,
+	[ID] [int] NULL
+) ON [PRIMARY]
+GO
+
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_RC_Enc]    Script Date: 10/22/2021 12:26:24 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_RC_Enc](
+	[ID_RC] [int] IDENTITY(1,1) NOT NULL,
+	[Stamp] [smalldatetime] NULL,
+	[FName] [varbinary](32) NOT NULL,
+	[LNAme] [varbinary](32) NOT NULL,
+	[DOB] [varbinary](32) NOT NULL,
+	[CellPhone] [varbinary](32) NOT NULL,
+	[CarrierText] [varchar](250) NULL,
+	[Status] [varchar](50) NULL,
+	[Q1] [varchar](250) NULL,
+	[Q2] [varchar](250) NULL,
+	[Q3] [varchar](250) NULL,
+	[Q4] [varchar](250) NULL,
+	[Q5] [varchar](250) NULL,
+	[Q6] [varchar](250) NULL,
+	[Q7] [varchar](250) NULL,
+	[Q8] [varchar](250) NULL,
+	[Q9] [varchar](250) NULL,
+	[Q10] [varchar](250) NULL,
+	[Q11] [varchar](250) NULL,
+	[Q12] [varchar](250) NULL,
+	[IPAddr] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MDCN_RC_Enc] ADD  CONSTRAINT [DF_MDCN_RC_Enc_Stamp]  DEFAULT (getdate()) FOR [Stamp]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_RC_Incoming]    Script Date: 10/22/2021 12:26:33 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_RC_Incoming](
+	[ID_RC] [int] IDENTITY(1,1) NOT NULL,
+	[Stamp] [smalldatetime] NULL,
+	[FName] [varbinary](32) NOT NULL,
+	[LNAme] [varbinary](32) NOT NULL,
+	[DOB] [varbinary](32) NOT NULL,
+	[CellPhone] [varbinary](32) NOT NULL,
+	[IPAddr] [varchar](250) NULL,
+	[Status] [varchar](50) NULL,
+	[Q1] [varchar](250) NULL,
+	[Q2] [varchar](250) NULL,
+	[Q3] [varchar](250) NULL,
+	[Q4] [varchar](250) NULL,
+	[Q5] [varchar](250) NULL,
+	[Q6] [varchar](250) NULL,
+	[Q7] [varchar](250) NULL,
+	[Q8] [varchar](250) NULL,
+	[Q9] [varchar](250) NULL,
+	[Q10] [varchar](250) NULL,
+	[Q11] [varchar](250) NULL,
+	[Q12] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MDCN_RC_Incoming] ADD  CONSTRAINT [DF_MDCN_RC_Incoming_Stamp]  DEFAULT (getdate()) FOR [Stamp]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_RC_ServiceEventLog]    Script Date: 10/22/2021 12:26:42 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_RC_ServiceEventLog](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Stamp] [smalldatetime] NULL,
+	[Event] [varchar](250) NULL,
+	[Status] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MDCN_RC_ServiceEventLog] ADD  CONSTRAINT [DF_MDCN_RC_ServiceEventLog_Stamp]  DEFAULT (getdate()) FOR [Stamp]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_RCUC_Enc]    Script Date: 10/22/2021 12:26:51 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_RCUC_Enc](
+	[ID_RCUC] [int] IDENTITY(1,1) NOT NULL,
+	[Stamp] [smalldatetime] NULL,
+	[FName] [varbinary](32) NOT NULL,
+	[LName] [varbinary](32) NOT NULL,
+	[DOB] [varbinary](32) NOT NULL,
+	[CellPhone] [varbinary](32) NOT NULL,
+	[CarrierText] [varchar](250) NULL,
+	[Street] [varbinary](32) NULL,
+	[Apt] [varbinary](32) NULL,
+	[City] [varbinary](32) NULL,
+	[State] [varbinary](32) NULL,
+	[Zip] [varbinary](32) NULL,
+	[InsCarrier] [varbinary](32) NULL,
+	[InsPolicy] [varbinary](32) NULL,
+	[InsGroup] [varbinary](32) NULL,
+	[PName] [varbinary](32) NULL,
+	[PDOB] [varbinary](32) NULL,
+	[PCell] [varbinary](32) NULL,
+	[Status] [varchar](50) NULL,
+	[QCons] [varchar](250) NOT NULL,
+	[QFin] [varchar](250) NOT NULL,
+	[Q1] [varchar](250) NOT NULL,
+	[Q2] [varchar](250) NOT NULL,
+	[Q3] [varchar](250) NOT NULL,
+	[Q4] [varchar](250) NULL,
+	[Q5] [varchar](250) NULL,
+	[Q6] [varchar](250) NULL,
+	[IPAddr] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MDCN_RCUC_Enc] ADD  CONSTRAINT [DF_MDCN_RCUC_Enc_Stamp]  DEFAULT (getdate()) FOR [Stamp]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_RCUC_Incoming]    Script Date: 10/22/2021 12:27:01 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_RCUC_Incoming](
+	[ID_RCUC] [int] IDENTITY(1,1) NOT NULL,
+	[Stamp] [smalldatetime] NULL,
+	[FName] [varbinary](32) NOT NULL,
+	[LName] [varbinary](32) NOT NULL,
+	[DOB] [varbinary](32) NOT NULL,
+	[CellPhone] [varbinary](32) NOT NULL,
+	[CarrierText] [varchar](250) NULL,
+	[Street] [varbinary](32) NOT NULL,
+	[Apt] [varbinary](32) NOT NULL,
+	[City] [varbinary](32) NOT NULL,
+	[State] [varbinary](32) NOT NULL,
+	[Zip] [varbinary](32) NOT NULL,
+	[InsCarrier] [varbinary](32) NOT NULL,
+	[InsPolicy] [varbinary](32) NOT NULL,
+	[InsGroup] [varbinary](32) NOT NULL,
+	[PName] [varbinary](32) NOT NULL,
+	[PDOBe] [varbinary](32) NOT NULL,
+	[PCell] [varbinary](32) NOT NULL,
+	[Status] [varchar](50) NULL,
+	[QCons] [varchar](250) NULL,
+	[QFin] [varchar](250) NULL,
+	[Q1] [varchar](250) NULL,
+	[Q2] [varchar](250) NULL,
+	[Q3] [varchar](250) NULL,
+	[Q4] [varchar](250) NULL,
+	[Q5] [varchar](250) NULL,
+	[Q6] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MDCN_RCUC_Incoming] ADD  CONSTRAINT [DF_MDCN_RCUC_Incoming_Stamp]  DEFAULT (getdate()) FOR [Stamp]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_RCUC_ServiceEventLog]    Script Date: 10/22/2021 12:27:10 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_RCUC_ServiceEventLog](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Stamp] [smalldatetime] NULL,
+	[Event] [varchar](250) NULL,
+	[Status] [varchar](250) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MDCN_RCUC_ServiceEventLog] ADD  CONSTRAINT [DF_MDCN_RCUC_ServiceEventLog_Stamp]  DEFAULT (getdate()) FOR [Stamp]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_RemoteCheckin]    Script Date: 10/22/2021 12:27:18 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_RemoteCheckin](
+	[ID_RC] [int] IDENTITY(1,1) NOT NULL,
+	[CarrierText] [varchar](250) NULL,
+	[FName] [varchar](250) NOT NULL,
+	[LName] [varchar](250) NOT NULL,
+	[DOB] [varchar](250) NOT NULL,
+	[CellPhone] [varchar](250) NOT NULL,
+	[Q1] [varchar](250) NULL,
+	[Q2] [varchar](250) NULL,
+	[Q3] [varchar](250) NULL,
+	[Q4] [varchar](250) NULL,
+	[Q5] [varchar](250) NULL,
+	[Q6] [varchar](250) NULL,
+	[Q7] [varchar](250) NULL,
+	[Q8] [varchar](250) NULL,
+	[Q9] [varchar](250) NULL,
+	[Q10] [varchar](250) NULL,
+	[Q11] [varchar](250) NULL,
+	[Q12] [varchar](250) NULL,
+	[Stamp] [smalldatetime] NULL,
+	[Status] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MDCN_RemoteCheckin] ADD  CONSTRAINT [DF_RCStamp]  DEFAULT (getdate()) FOR [Stamp]
+GO
+
+ALTER TABLE [dbo].[MDCN_RemoteCheckin] ADD  CONSTRAINT [DF_RemoteCheckin_Status]  DEFAULT ('NEW') FOR [Status]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[MDCN_RemoteCheckinUC]    Script Date: 10/22/2021 12:27:30 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[MDCN_RemoteCheckinUC](
+	[ID_RC] [int] IDENTITY(1,1) NOT NULL,
+	[CarrierText] [varchar](250) NULL,
+	[FName] [varchar](250) NOT NULL,
+	[LName] [varchar](250) NOT NULL,
+	[Cell] [varchar](250) NOT NULL,
+	[DOB] [varchar](250) NOT NULL,
+	[Street] [varchar](250) NULL,
+	[Apt] [varchar](250) NULL,
+	[City] [varchar](250) NULL,
+	[State] [varchar](250) NULL,
+	[Zip] [varchar](250) NULL,
+	[InsCarrier] [varchar](250) NULL,
+	[InsPolicy] [varchar](250) NULL,
+	[InsGroup] [varchar](250) NULL,
+	[PName] [varchar](250) NULL,
+	[PDOB] [varchar](250) NULL,
+	[PCell] [varchar](250) NULL,
+	[QCons] [varchar](250) NULL,
+	[QFin] [varchar](250) NULL,
+	[Q1] [varchar](250) NOT NULL,
+	[Q2] [varchar](250) NOT NULL,
+	[Q3] [varchar](250) NOT NULL,
+	[Q4] [varchar](250) NULL,
+	[Q5] [varchar](250) NULL,
+	[Q6] [varchar](250) NULL,
+	[Stamp] [smalldatetime] NULL,
+	[Status] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[MDCN_RemoteCheckinUC] ADD  CONSTRAINT [DF_RCUCStamp]  DEFAULT (getdate()) FOR [Stamp]
+GO
+
+ALTER TABLE [dbo].[MDCN_RemoteCheckinUC] ADD  CONSTRAINT [DF_RemoteCheckinUC_Status]  DEFAULT ('NEW') FOR [Status]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[ref_MobileCarriers]    Script Date: 10/22/2021 12:27:41 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ref_MobileCarriers](
+	[Carrier] [nvarchar](255) NULL,
+	[Country] [nvarchar](255) NULL,
+	[Gateway] [nvarchar](255) NULL
+) ON [PRIMARY]
+GO
+
+USE [MDCN]
+GO
+
+/****** Object:  Table [dbo].[refStates]    Script Date: 10/22/2021 12:30:36 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[refStates](
+	[Code] [char](2) NULL,
+	[StateName] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+

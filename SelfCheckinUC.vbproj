@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{CD8E53D2-B177-494B-AE08-1CEEF98E43D7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SelfCheckinUC</RootNamespace>
+    <AssemblyName>SelfCheckinUC</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44395</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>WebForms_Basic.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>WebForms_Basic.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.Routing" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\normalize.min.css" />
+    <Content Include="assets\css\plugins.min.css" />
+    <Content Include="assets\css\preload.min.css" />
+    <Content Include="assets\css\RCUC.css" />
+    <Content Include="assets\css\style.light-blue-300.min.css" />
+    <Content Include="assets\css\style.light-blue-400.min.css" />
+    <Content Include="assets\css\style.light-blue-500.css" />
+    <Content Include="assets\css\style.light-blue-500.min.css" />
+    <Content Include="assets\css\style.light-blue-600.min.css" />
+    <Content Include="assets\css\style.light-blue-700.min.css" />
+    <Content Include="assets\css\style.light-blue-800.min.css" />
+    <Content Include="assets\css\width-boxed.min.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\ionicons.svg" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="assets\icons\card-text.svg" />
+    <Content Include="assets\icons\download.png" />
+    <Content Include="assets\img\AH_logo.png" />
+    <Content Include="assets\img\AlbanyMedSaratogaLogo_Lg.jpeg" />
+    <Content Include="assets\img\B4E9205F-F211-4A99-A484-A77AA18DC295.png" />
+    <Content Include="assets\img\Blank.jpg" />
+    <Content Include="assets\img\close.png" />
+    <Content Include="assets\img\loading.gif" />
+    <Content Include="assets\img\logo_SaratogaHosp.png" />
+    <Content Include="assets\img\MaltaMed_logo.png" />
+    <Content Include="assets\img\next.png" />
+    <Content Include="assets\img\prev.png" />
+    <Content Include="assets\img\WiltonUrgentCare_logo.png" />
+    <Content Include="assets\img\WMA2_logo.png" />
+    <Content Include="assets\img\WMA_logo.jpg" />
+    <Content Include="assets\js\app.min.js" />
+    <Content Include="assets\js\charts-bar.js" />
+    <Content Include="assets\js\charts-circle.js" />
+    <Content Include="assets\js\charts-line.js" />
+    <Content Include="assets\js\charts-more.js" />
+    <Content Include="assets\js\combined.js" />
+    <Content Include="assets\js\coming.js" />
+    <Content Include="assets\js\component-carousels.js" />
+    <Content Include="assets\js\component-snackbar.js" />
+    <Content Include="assets\js\configurator.min.js" />
+    <Content Include="assets\js\ecommerce.js" />
+    <Content Include="assets\js\home-cv-landing.js" />
+    <Content Include="assets\js\home-cv.js" />
+    <Content Include="assets\js\home-generic-3.js" />
+    <Content Include="assets\js\home-generic-5.js" />
+    <Content Include="assets\js\home-generic-6.js" />
+    <Content Include="assets\js\home-generic-7.js" />
+    <Content Include="assets\js\html5shiv.min.js" />
+    <Content Include="assets\js\index.js" />
+    <Content Include="assets\js\jquery.webcam.min.js" />
+    <Content Include="assets\js\lead-cv-full.js" />
+    <Content Include="assets\js\lead-full.js" />
+    <Content Include="assets\js\lead.js" />
+    <Content Include="assets\js\plugins.min.js" />
+    <Content Include="assets\js\portfolio.js" />
+    <Content Include="assets\js\respond.min.js" />
+    <Content Include="assets\plugins\revolution\assets\warning.js" />
+    <Content Include="assets\plugins\revolution\revolution-addons\countdown\revolution.addon.countdown.min.js" />
+    <Content Include="assets\plugins\revolution\revolution-addons\snow\revolution.addon.snow.js" />
+    <Content Include="assets\plugins\revolution\revolution-addons\snow\revolution.addon.snow.min.js" />
+    <Content Include="assets\plugins\revolution\revolution-addons\typewriter\css\typewriter.css" />
+    <Content Include="assets\plugins\revolution\revolution-addons\typewriter\js\revolution.addon.typewriter.js" />
+    <Content Include="assets\plugins\revolution\revolution-addons\typewriter\js\revolution.addon.typewriter.min.js" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\abacus.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\address-book.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\address-book2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\aim.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\alarm.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\apple.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\arrow-left.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\arrow-right.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\arrows-updown.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\atm-cash.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\award1.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\award2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\award3.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\award4.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\award5.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\badge01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\badge02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\bank.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\bank2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\bell.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\binoculars.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\bomb.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\bonsai.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\book-apple.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\book.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\bookmark.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\box.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\brain.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\briefcase.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\browser01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\browser02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\buildings.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\buy-sign.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\calculator1.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\calculator2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\calculator3.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\calendar1.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\calendar2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\calendar3.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\calendar4.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\calendar5.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\certificate.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\champagne.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\character01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\character02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\character03.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\character04.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\character05.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\character06.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\character07.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\character08.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart-analysis.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart-board.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart-pyramid.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart03.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart04.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart05.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart06.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart07.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart08.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart09.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart10.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart11.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart12.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart13.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart14.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart15.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart16.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart17.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart18.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart19.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart20.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chart21.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chat.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\checklist.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\checklist2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\checklist3.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chemistry.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chess-knight.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chess-rook.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\chess.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\clock.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\closed-sign.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\cloud-coins.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\cloud-down.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\cloud-up.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\coffee.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\conference.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\contact-book.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\coupon.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\credit-card.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\crown.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\currencies.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\database.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\delivery.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\diagram-hierarchy.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\diamond.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\dollar.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\drawer.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\egg.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\emblem.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\envelope-money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\envelopes.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\euro.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\exchange.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\exit.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\factory.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\fax.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file03.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file04.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file05.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file06.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file07.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file08.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file09.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\file10.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\files.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\fire.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\fish.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\flag.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\folder-add.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\folder-delete.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\folder-online.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\folder-private.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\folder-remove.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\folder.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\folders.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\funnel-money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\funnel.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\gauge.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\gauge2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\gears1.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\gears2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\glasses-moustache.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\globe-money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\globe.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\globe2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\graduation-hat.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\hand-globe.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\hand-key.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\hand-money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\hand-money2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\handshake.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\hat-moustache.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\hat.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-arrows.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-battery.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-check.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-compass.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-dollar.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-exclamation.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-flash.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-gauge.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-gears.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-hourglass.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-idea.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-question.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head-structure.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\head.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\headquarters.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\hourglass.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\hours.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\incoming.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\ingots.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\key.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\key2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\keyboard.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\label.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\lamp.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-article.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-cart.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-chart.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-chart2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-diagram.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-envelope.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-finance.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-privacy.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-settings.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop-user.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\laptop.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\lightbulb-green.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\lightbulb.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\lightning.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\like.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\lock.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\magnet-money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\magnifying-glass.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\manager-globe.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\manager-idea.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\manager01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\manager02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\meditation.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\megaphone.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\money-growth.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\money-scales.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\money2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\money3.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\money4.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\money5.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\money6.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\monitor.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\mouse.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\nest-money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\newspaper-jobs.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\newspaper-pen.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\newspaper.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\NewTux.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\note-paper.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\office-chair.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\open-sign.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\outgoing.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\paper-clip.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\paper-plane.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pen.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pen2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pencil.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pens-pencils.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-arrows06.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-gears.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-handshake.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-idea.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-meeting.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-meeting02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-search01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-search02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-structure.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-structure01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-structure02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-structure03.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-structure04.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-structure05.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-structure06.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\people-structure07.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\percent.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\periscopemoney.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-arrows01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-arrows012.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-arrows02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-arrows022.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-arrows03.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-checkmark.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-cross.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-data.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-dollar.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-finance.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-flag.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-globe.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-idea02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-info.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-puzzle.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-scales.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-time.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\person-umbrella.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\phone.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pie-chart01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pie-chart02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\piggy-bank.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pin.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\plant-money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\plant.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pound.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\presentation.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\presentation02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\preson-chart02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\preson-chart03.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\preson-chart04.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\preson-laurels.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\preson-megaphone.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\preson-stairs.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\printer.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\profile.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\pulse.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\puzzle.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\quill.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\recycle.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\rocket.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\rocket2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\ruble.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\ruler-compasses.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\safe.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\sale-sign.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\satellite-dish.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\scales.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\scissors.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\security.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\send.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\shield.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\shopping-cart.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\sign.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\smartphone-chart.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\smartphone-exclamation.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\smartphone-gears.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\smartphone-growth.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\smartphone-money.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\smartphone-user.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\smartphone.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\speaker.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\speaker02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\speech-bubble.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\stamp.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\star.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\steering-wheel.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\strategy03.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\strategy1.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\strategy2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\support-person.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tablet-article.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tablet-chart.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tablet-chart2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tablet-chart3.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tablet-pie-chart.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tablet-pie-chart2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tablet.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\target.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\team.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\telescope.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tie.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tools.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\tools2.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\trash-bin.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\umbrella.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user01.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user02.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user03.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user04.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user05.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user06.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user07.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user08.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\user09.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\users.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\venn-diagram.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\wallet.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\wrench.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\yen.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\busy-icons-svg\yinyang.svg" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\css\license.txt" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\images\hand_point_right.png" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\assets\images\write_right_angle.png" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\js\revolution.addon.whiteboard.min.js" />
+    <Content Include="assets\plugins\revolution\revolution-addons\whiteboard\js\source\revolution.addon.whiteboard.js" />
+    <Content Include="assets\plugins\revolution\revolution\css\closedhand.cur" />
+    <Content Include="assets\plugins\revolution\revolution\css\layers.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\ares.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\custom.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\dione.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\erinyen.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\gyges.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\hades.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\hebe.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\hephaistos.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\hermes.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\hesperiden.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\metis.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\persephone.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\uranus.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation-skins\zeus.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\navigation.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\openhand.cur" />
+    <Content Include="assets\plugins\revolution\revolution\css\settings-ver.5.3.1.css" />
+    <Content Include="assets\plugins\revolution\revolution\css\settings.css" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.actions.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.carousel.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.kenburn.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.layeranimation.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.migration.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.navigation.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.parallax.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.slideanims.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\revolution.extension.video.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.actions.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.carousel.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.kenburn.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.layeranimation.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.migration.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.navigation.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.parallax.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.slideanims.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\extensions\source\revolution.extension.video.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\jquery.themepunch.enablelog.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\jquery.themepunch.tools.min.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\source\jquery.themepunch.enablelog.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\source\jquery.themepunch.revolution.js" />
+    <Content Include="assets\plugins\revolution\revolution\js\source\jquery.themepunch.tools.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Docs\CreateAndPopulate_refStatesTable.sql" />
+    <Content Include="Docs\html\css\bootstrap.min.css" />
+    <Content Include="Docs\html\css\font-awesome.min.css" />
+    <Content Include="Docs\html\css\normalize.min.css" />
+    <Content Include="Docs\html\css\plugins.min.css" />
+    <Content Include="Docs\html\RC.html" />
+    <Content Include="Docs\html\RCUC.html" />
+    <Content Include="Docs\MDCN_DB_Tables_Script.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\Consent.pdf" />
+    <Content Include="Content\Fin.pdf" />
+    <Content Include="Content\FinAndConsenr.pdf" />
+    <Content Include="Docs\consent.pdf" />
+    <Content Include="Docs\fin.pdf" />
+    <Content Include="Docs\MobileCarriers.xls" />
+    <Content Include="Docs\MobileCarriers.xlsx" />
+    <Content Include="Docs\Notice of Beneficiary.pdf" />
+    <Content Include="Docs\Urgent Care ILI QR.docx" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\fonts\ionicons.eot" />
+    <Content Include="assets\fonts\ionicons.ttf" />
+    <Content Include="assets\fonts\ionicons.woff" />
+    <Content Include="assets\fonts\ionicons.woff2" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="assets\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\plugins\revolution\revolution\fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\plugins\revolution\revolution\info.cfg" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="LandingPage.aspx" />
+    <Content Include="LandingPage.html" />
+    <Content Include="PatientPathOnline.html" />
+    <Content Include="RCPostSave.aspx" />
+    <Content Include="RCUC.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\clsAESencrypt.vb" />
+    <Compile Include="App_Code\clsAesExample.vb" />
+    <Compile Include="App_Code\clsBase.vb" />
+    <Compile Include="App_Code\clsBearer.vb" />
+    <Compile Include="App_Code\clsCovidQuest.vb" />
+    <Compile Include="App_Code\clsEmail.vb" />
+    <Compile Include="App_Code\clsFacil.vb" />
+    <Compile Include="App_Code\clsMDCNRCServiceTest.vb" />
+    <Compile Include="App_Code\clsMobilePhoto.vb" />
+    <Compile Include="App_Code\clsOathExample.vb" />
+    <Compile Include="App_Code\clsProgram.vb" />
+    <Compile Include="App_Code\clsRemoteReg.vb" />
+    <Compile Include="App_Start\BundleConfig.vb" />
+    <Compile Include="App_Start\RouteConfig.vb" />
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPage.aspx.designer.vb">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPage.aspx.vb">
+      <DependentUpon>LandingPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RCPostSave.aspx.designer.vb">
+      <DependentUpon>RCPostSave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RCPostSave.aspx.vb">
+      <DependentUpon>RCPostSave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RCUC.aspx.designer.vb">
+      <DependentUpon>RCUC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RCUC.aspx.vb">
+      <DependentUpon>RCUC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.vb">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.vb">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.vb">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.vb">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Site.Master" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="ViewSwitcher.ascx" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49527</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44395/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
